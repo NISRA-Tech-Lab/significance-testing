@@ -1,0 +1,39 @@
+group1,grouping1,group2,grouping2
+SEX,Male,SEX,Female
+AGE2,16-24,AGE2,25-34
+AGE2,16-24,AGE2,35-44
+AGE2,16-24,AGE2,45-54
+AGE2,16-24,AGE2,55-64
+AGE2,16-24,AGE2,65-74
+AGE2,16-24,AGE2,75 and over
+AGE2,25-34,AGE2,35-44
+AGE2,25-34,AGE2,45-54
+AGE2,25-34,AGE2,55-64
+AGE2,25-34,AGE2,65-74
+AGE2,25-34,AGE2,75 and over
+AGE2,35-44,AGE2,45-54
+AGE2,35-44,AGE2,55-64
+AGE2,35-44,AGE2,65-74
+AGE2,35-44,AGE2,75 and over
+AGE2,45-54,AGE2,55-64
+AGE2,45-54,AGE2,65-74
+AGE2,45-54,AGE2,75 and over
+AGE2,55-64,AGE2,65-74
+AGE2,55-64,AGE2,75 and over
+AGE2,65-74,AGE2,75 and over
+DERHIanalysis,"Degree, or Degree equivalent and above",DERHIanalysis,Other higher education below degree level
+DERHIanalysis,"Degree, or Degree equivalent and above",DERHIanalysis,"A levels, vocational level 3 and equivalents"
+DERHIanalysis,"Degree, or Degree equivalent and above",DERHIanalysis,GCSE/O level grade A*-C. vocational level 2 and equivalents
+DERHIanalysis,"Degree, or Degree equivalent and above",DERHIanalysis,Qualifications at level 1 and below
+DERHIanalysis,"Degree, or Degree equivalent and above",DERHIanalysis,No qualification
+DERHIanalysis,Other higher education below degree level,DERHIanalysis,"A levels, vocational level 3 and equivalents"
+DERHIanalysis,Other higher education below degree level,DERHIanalysis,GCSE/O level grade A*-C. vocational level 2 and equivalents
+DERHIanalysis,Other higher education below degree level,DERHIanalysis,Qualifications at level 1 and below
+DERHIanalysis,Other higher education below degree level,DERHIanalysis,No qualification
+DERHIanalysis,"A levels, vocational level 3 and equivalents",DERHIanalysis,GCSE/O level grade A*-C. vocational level 2 and equivalents
+DERHIanalysis,"A levels, vocational level 3 and equivalents",DERHIanalysis,Qualifications at level 1 and below
+DERHIanalysis,"A levels, vocational level 3 and equivalents",DERHIanalysis,No qualification
+DERHIanalysis,GCSE/O level grade A*-C. vocational level 2 and equivalents,DERHIanalysis,Qualifications at level 1 and below
+DERHIanalysis,GCSE/O level grade A*-C. vocational level 2 and equivalents,DERHIanalysis,No qualification
+DERHIanalysis,Qualifications at level 1 and below,DERHIanalysis,No qualification
+EMPST2,In paid employment,EMPST2,Not in paid employment
