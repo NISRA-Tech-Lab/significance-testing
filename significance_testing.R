@@ -1,15 +1,55 @@
+# Source functions and packages ####
 library(here)
-
-# R Scripts containing bespoke functions for significance testing
 source(paste0(here(), "/config.R"))
 
-## INPUTS ####
+# Input files ####
 vars <- read.csv(paste0(here(), "/inputs/var.csv"))
 groupings <- read.csv(paste0(here(), "/inputs/grouping.csv"))
 time_series_vars <- read_csv(paste0(here(), "/inputs/var_across_time.csv"), show_col_types = FALSE)
 
+# Data ####
+
 analysis_year <- 2022
 comparison_year <- 2021
+
+data_last_name <- paste0(data_folder, "Final/PCOS ", comparison_year, " Final Dataset.RDS")
+data_last <- readRDS(data_last_name)
+
+data_current_name <- paste0(data_folder, "Final/PCOS ", analysis_year, " Final Dataset.RDS")
+data_current <- readRDS(data_current_name)
+
+# Response types ####
+yes <- c(
+  "Yes",
+  "Trust a great deal",
+  "Tend to trust",
+  "Tend to trust them",
+  "Trust them greatly",
+  "Strongly agree",
+  "Tend to agree",
+  "Trust a great deal/Tend to trust",
+  "Strongly Agree/Tend to Agree"
+)
+
+no <- c(
+  "No",
+  "Tend to distrust",
+  "Distrust greatly",
+  "Tend not to trust them",
+  "Distrust them greatly",
+  "Tend to disagree",
+  "Strongly disagree",
+  "Tend to distrust/Distrust greatly",
+  "Tend to disagree/Strongly disagree"
+)
+
+dont_know <- c(
+  "DontKnow",
+  "Don't know",
+  "Don't Know"
+)
+
+# Analysis ####
 
 vars$data_last <- c()
 
@@ -19,15 +59,6 @@ for (i in 1:nrow(vars)) {
     pull(as.character(comparison_year))
 }
 
-
-
-## DATA ####
-
-data_last_name <- paste0(data_folder, "Final/PCOS ", comparison_year, " Final Dataset.RDS")
-data_last <- readRDS(data_last_name)
-
-data_current_name <- paste0(data_folder, "Final/PCOS ", analysis_year, " Final Dataset.RDS")
-data_current <- readRDS(data_current_name)
 
 # Check co-variate names with previous year
 co_vars <- unique(groupings$group1)
@@ -55,33 +86,9 @@ for (var in weight_vars) {
 for (i in 1:nrow(vars)) {
   if (!is.na(vars$data_last[i])) {
     data_last[[vars$data_last[i]]] <- fct_collapse(data_last[[vars$data_last[i]]],
-      "yes" = c(
-        "Yes",
-        "Trust a great deal",
-        "Tend to trust",
-        "Tend to trust them",
-        "Trust them greatly",
-        "Strongly agree",
-        "Tend to agree",
-        "Trust a great deal/Tend to trust",
-        "Strongly Agree/Tend to Agree"
-      ),
-      "no" = c(
-        "No",
-        "Tend to distrust",
-        "Distrust greatly",
-        "Tend not to trust them",
-        "Distrust them greatly",
-        "Tend to disagree",
-        "Strongly disagree",
-        "Tend to distrust/Distrust greatly",
-        "Tend to disagree/Strongly disagree"
-      ),
-      "dont_know" = c(
-        "DontKnow",
-        "Don't know",
-        "Don't Know"
-      )
+      "yes" = yes,
+      "no" = no,
+      "dont_know" = dont_know
     )
 
     data_last[[vars$data_last[i]]] <- case_when(
@@ -91,33 +98,9 @@ for (i in 1:nrow(vars)) {
   }
 
   data_current[[vars$data_current[i]]] <- fct_collapse(data_current[[vars$data_current[i]]],
-    "yes" = c(
-      "Yes",
-      "Trust a great deal",
-      "Tend to trust",
-      "Tend to trust them",
-      "Trust them greatly",
-      "Strongly agree",
-      "Tend to agree",
-      "Trust a great deal/Tend to trust",
-      "Strongly Agree/Tend to Agree"
-    ),
-    "no" = c(
-      "No",
-      "Tend to distrust",
-      "Distrust greatly",
-      "Tend not to trust them",
-      "Distrust them greatly",
-      "Tend to disagree",
-      "Strongly disagree",
-      "Tend to distrust/Distrust greatly",
-      "Tend to disagree/Strongly disagree"
-    ),
-    "dont_know" = c(
-      "DontKnow",
-      "Don't know",
-      "Don't Know"
-    )
+    "yes" = yes,
+    "no" = no,
+    "dont_know" = dont_know
   )
 
   data_current[[vars$data_current[i]]] <- case_when(
@@ -164,7 +147,6 @@ for (i in 1:nrow(vars)) {
   )
 }
 
-### **** CODE **** #####PCOS1## **** CODE **** ####
 # Build dataframe for testing from vars and groupings inputs
 co_vars <- unique(groupings$group1)
 
@@ -376,6 +358,7 @@ vardf_excl_dk <- vardf_excl_dk %>%
   select(year1, group1, grouping1, var1, question1, n1, p1, year2, group2, grouping2, var2, answer, n2, p2, significance, direction, score) %>%
   arrange(desc(significance))
 
+# Create output ####
 
 wb <- createWorkbook()
 modifyBaseFont(wb, fontSize = 12, fontName = "Arial")
@@ -526,6 +509,8 @@ for (i in 1:nrow(vars)) {
     }
   }
 }
+
+# Save output ####
 
 output_file <- paste0(here(), "/outputs/significance output ", analysis_year, " - with ", comparison_year, " comparison.xlsx")
 
