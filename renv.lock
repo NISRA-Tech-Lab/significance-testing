@@ -3,8 +3,52 @@
     "Version": "4.4.0",
     "Repositories": [
       {
+        "Name": "TLCRAN1",
+        "URL": "file:////pr-clus-vfpdfp/DOF_NISRA_R_Packages/production"
+      },
+      {
+        "Name": "TLCRAN2",
+        "URL": "file:////pr-clus-vfpdfp/DOF_NISRA_R_Packages/production-2024-08-21"
+      },
+      {
+        "Name": "TLCRAN3",
+        "URL": "file:////pr-clus-vfpdfp/DOF_NISRA_R_Packages/production-2024-08-22"
+      },
+      {
+        "Name": "TLCRAN4",
+        "URL": "file:////pr-clus-vfpdfp/DOF_NISRA_R_Packages/production-2024-09-06"
+      },
+      {
+        "Name": "TLCRAN5",
+        "URL": "file:////pr-clus-vfpdfp/DOF_NISRA_R_Packages/production-2024-09-16"
+      },
+      {
+        "Name": "TLCRAN6",
+        "URL": "file:////pr-clus-vfpdfp/DOF_NISRA_R_Packages/production-2024-10-09"
+      },
+      {
+        "Name": "TLCRAN7",
+        "URL": "file:////pr-clus-vfpdfp/DOF_NISRA_R_Packages/production-2024-10-15"
+      },
+      {
+        "Name": "TLCRAN8",
+        "URL": "file:////pr-clus-vfpdfp/DOF_NISRA_R_Packages/production-2024-11-20"
+      },
+      {
+        "Name": "TLCRAN9",
+        "URL": "file:////pr-clus-vfpdfp/DOF_NISRA_R_Packages/production-2024-12-03"
+      },
+      {
+        "Name": "TLCRAN10",
+        "URL": "file:////pr-clus-vfpdfp/DOF_NISRA_R_Packages/production-2024-12-05"
+      },
+      {
+        "Name": "TLCRAN11",
+        "URL": "file:////pr-clus-vfpdfp/DOF_NISRA_R_Packages/production-2025-01-23"
+      },
+      {
         "Name": "CRAN",
-        "URL": "https://packagemanager.posit.co/cran/latest"
+        "URL": "https://cran.rstudio.com"
       }
     ]
   },
